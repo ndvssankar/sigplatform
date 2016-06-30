@@ -103,7 +103,11 @@ public class LogItemBuilderImpl implements LogItemBuilder {
 		}
 		item.setTestDirectory( parent );
 		Date parentDate = new Date(parentFile.lastModified());
-		DateFormat parentFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		/*
+			Date format has been changed according to the Drupal Configuration...
+			Modified by Siva Sankar.
+		*/
+	DateFormat parentFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         parentFormat.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
         String parentFormatted = parentFormat.format(parentDate);
         item.setTestDirectoryDate(parentFormatted);
@@ -115,7 +119,11 @@ public class LogItemBuilderImpl implements LogItemBuilder {
 			item.setTestSimulationTime( Long.parseLong(simTimeStr) );
 		}
 		Date date = new Date(file.lastModified());
-		DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		/*
+			Date format has been changed according to the Drupal Configuration...
+			Modified by Siva Sankar.
+		*/
+	DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         format.setTimeZone(TimeZone.getTimeZone("Etc/UTC"));
         String formatted = format.format(date);
 		item.setTimeSimulationCompleted( formatted );
